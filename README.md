@@ -85,6 +85,14 @@ Run the notebook blocks in their documented order. The block-level markdown in t
 - Running Blocks 15, 29, or 34 in a fresh environment may create new timestamps and hashes for the analysis plan/amendments. Those newly generated records are not a substitute for the original records used in the reported experiments.
 - Do not run the full notebook top-to-bottom without following the block-specific prerequisites. Some blocks require prior artifacts in persistent storage and can take substantial GPU time.
 
+## Remaining audit notes
+
+These items are intentionally left unchanged in the notebook so that its research code and filename remain untouched:
+
+- The notebook's opening Markdown cell still contains template placeholders for the repository URL, archived-release DOI, and code license. The correct repository URL and MIT license are documented here; add a Zenodo DOI only after a release has actually been archived.
+- The introductory environment paragraph reports `timm` 1.0.26–1.0.29, but Block 15's fallback installer requests `timm==1.0.15`. Resolve this version discrepancy against the environment used for the reported runs before making a new reproducibility claim.
+- Stage 1 Blocks 1–14 and the generated release archives/prediction files are not present in the current repository. These must be supplied separately to provide the complete study record.
+
 ## Outputs and figure regeneration
 
 The notebook writes artifacts under `Q1_ROOT`, by default `/kaggle/working/q1/`. Depending on the blocks run, these include:
