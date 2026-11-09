@@ -1,0 +1,46 @@
+name: Validate research notebook
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-notebook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install notebook validator
+        run: python -m pip install --disable-pip-version-check nbformat
+
+      - name: Validate notebook structure
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import nbformat
+
+          path = Path("oralleak_all_blocks.ipynb")
+          notebook = nbformat.read(path, as_version=4)
+          nbformat.validate(notebook)
+
+          if not notebook.cells:
+              raise SystemExit("Notebook has no cells.")
+
+          code_cells = sum(cell.cell_type == "code" for cell in notebook.cells)
+          markdown_cells = sum(cell.cell_type == "markdown" for cell in notebook.cells)
+          print(
+              f"Valid notebook: {len(notebook.cells)} cells "
+              f"({code_cells} code, {markdown_cells} Markdown)."
+          )
+          PY
