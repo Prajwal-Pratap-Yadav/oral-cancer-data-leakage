@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite the associated manuscript listed below.
+  The manuscript was identified as submitted in the notebook; update the citation
+  metadata with the final publication details and DOI when available.
+type: software
+title: >-
+  Data Leakage in Oral Cancer Image Classification: A Pre-Specified Matched-Arm
+  Study With Patient-Level and External Validation
+authors:
+  - family-names: Yadav
+    given-names: Prajwal Pratap
+  - family-names: Pramanick
+    given-names: Esha
+  - family-names: Swetapadma
+    given-names: Aleena
+repository-code: 'https://github.com/Prajwal-Pratap-Yadav/oral-cancer-data-leakage'
+license: MIT
+keywords:
+  - oral cancer
+  - medical image classification
+  - deep learning
+  - data leakage
+  - patient-level validation
+  - external validation
