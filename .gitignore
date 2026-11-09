@@ -218,3 +218,19 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Research data and generated artifacts (keep datasets and run outputs out of Git)
+data/
+datasets/
+q1/
+release/
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Local credentials and environment configuration
+.env
+.env.*
+!.env.example
